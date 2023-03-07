@@ -45,11 +45,11 @@ renderComponent();
 // si renderizamos el primer componente
 // con auhtStateChange
 // onAuthStateChange(
-//   (user) => new Promise((resolve) => {
+//   (user) => {
 //     if (user) {
-//       navigate('/feed').then(resolve);
+//       navigate('/feed');
 //     } else {
-//       navigate('/').then(resolve);
+//       navigate('/');
 //     }
-//   }),
+//   },
 // );
