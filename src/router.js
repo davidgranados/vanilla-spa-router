@@ -1,10 +1,14 @@
+/** @type {Object.<string, function>} */
 const ROUTES = {}
 
+/**
+ *
+ * @returns {Object.<string, function>}
+ */
 export const getRoutes = () => structuredClone(ROUTES)
 
-// TODO: write jsdoc for this function
-
 /**
+ *
  * @param {Array.<{pathname: string, component: function}>} routes
  */
 export const setRoutes = (routes) => {
@@ -22,6 +26,11 @@ export const setRoutes = (routes) => {
   }, ROUTES)
 }
 
+/**
+ *
+ * @param {string} pathname
+ * @returns
+ */
 export const getComponentByRoute = (pathname) => {
   // Si encuentra la ruta, retorna el componenteßå
   if (Object.keys(ROUTES).includes(pathname)) {
@@ -37,16 +46,33 @@ export const getComponentByRoute = (pathname) => {
   throw new Error('No route found')
 }
 
-export const renderComponent = ({ rootElementId = 'root' } = {}) => {
-  // Obtiene el componente por la ruta actual
-  const component = getComponentByRoute(window.location.pathname)
-
-  // Renderiza el componente en el elemento root
+/**
+ *
+ * @param {string} rootElementId
+ * @param {function} component
+ * @returns
+ */
+export const renderComponent = (rootElementId = 'root', component = null) => {
   const rootSection = document.getElementById(rootElementId)
   rootSection.innerHTML = ''
-  rootSection.appendChild(component())
+
+  if (component) {
+    // Renderiza el componente en el elemento root
+    rootSection.appendChild(component())
+    return
+  }
+
+  // Obtiene el componente por la ruta actual
+  const pathnameComponent = getComponentByRoute(window.location.pathname)
+
+  // Renderiza el componente en el elemento root
+  rootSection.appendChild(pathnameComponent())
 }
 
+/**
+ *
+ * @param {string} pathname
+ */
 export const navigate = (pathname) => {
   // Cambia la ruta actual
   window.history.pushState({}, pathname, window.location.origin + pathname)

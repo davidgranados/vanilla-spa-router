@@ -36,7 +36,7 @@ setRoutes(routes)
 
 // si no renderizamos el primer componente
 // con auhtStateChange
-renderComponent()
+renderComponent('root', Home)
 
 // si renderizamos el primer componente
 // con auhtStateChange
