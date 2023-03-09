@@ -1,4 +1,6 @@
-export const ROUTES = {};
+const ROUTES = {};
+
+export const getRoutes = () => structuredClone(ROUTES);
 
 export const setRoutes = (routes) => {
   // Arma el objeto ROUTES con las rutas agregadas
