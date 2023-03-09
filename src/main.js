@@ -11,10 +11,6 @@ import {
   renderComponent,
 } from './router.js';
 
-// agregamos el evento popstate para que
-// podamos volver atras en el navegador
-window.onpopstate = handlePopState;
-
 // Creamos un arreglo de rutas
 const routes = [
   {
@@ -53,3 +49,7 @@ renderComponent();
 //     }
 //   },
 // );
+
+// agregamos el evento popstate para que
+// podamos volver atras en el navegador
+window.onpopstate = handlePopState;
