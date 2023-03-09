@@ -1,30 +1,30 @@
-import { navigate } from '../router.js';
+import { navigate } from '../router.js'
 
 const Home = () => {
-  const homeSection = document.createElement('section');
-  const homeSectionTitle = document.createElement('h1');
-  homeSectionTitle.textContent = 'Home';
+  const homeSection = document.createElement('section')
+  const homeSectionTitle = document.createElement('h1')
+  homeSectionTitle.textContent = 'Home'
 
-  const btnHomeRegister = document.createElement('button');
-  btnHomeRegister.textContent = 'Register';
+  const btnHomeRegister = document.createElement('button')
+  btnHomeRegister.textContent = 'Register'
 
-  const btnHomeFeed = document.createElement('button');
-  btnHomeFeed.textContent = 'Feed';
+  const btnHomeFeed = document.createElement('button')
+  btnHomeFeed.textContent = 'Feed'
 
-  homeSection.appendChild(homeSectionTitle);
-  homeSection.appendChild(btnHomeRegister);
-  homeSection.appendChild(btnHomeFeed);
+  homeSection.appendChild(homeSectionTitle)
+  homeSection.appendChild(btnHomeRegister)
+  homeSection.appendChild(btnHomeFeed)
 
   // Go to /register
   btnHomeRegister.addEventListener('click', async () => {
-    navigate('/register');
-  });
+    navigate('/register')
+  })
   // Go to /feed
   btnHomeFeed.addEventListener('click', async () => {
-    navigate('/feed');
-  });
+    navigate('/feed')
+  })
 
-  return homeSection;
-};
+  return homeSection
+}
 
-export default Home;
+export default Home

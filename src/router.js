@@ -1,7 +1,12 @@
-const ROUTES = {};
+const ROUTES = {}
 
-export const getRoutes = () => structuredClone(ROUTES);
+export const getRoutes = () => structuredClone(ROUTES)
 
+// TODO: write jsdoc for this function
+
+/**
+ * @param {Array.<{pathname: string, component: function}>} routes
+ */
 export const setRoutes = (routes) => {
   // Arma el objeto ROUTES con las rutas agregadas
 
@@ -11,44 +16,45 @@ export const setRoutes = (routes) => {
 
   // Otra forma de hacer lo mismo
   routes.reduce((currentRoutes, newRoute) => {
-    currentRoutes[newRoute.pathname] = newRoute.component;
-    return currentRoutes;
-  }, ROUTES);
-};
+    // eslint-disable-next-line semi
+    currentRoutes[newRoute.pathname] = newRoute.component
+    return currentRoutes
+  }, ROUTES)
+}
 
 export const getComponentByRoute = (pathname) => {
   // Si encuentra la ruta, retorna el componenteßå
   if (Object.keys(ROUTES).includes(pathname)) {
-    return ROUTES[pathname];
+    return ROUTES[pathname]
   }
 
   // Si no encuentra la ruta, busca la ruta por defecto
   if (ROUTES['*']) {
-    return ROUTES['*'];
+    return ROUTES['*']
   }
 
   // Si no encuentra la ruta por defecto, lanza un error
-  throw new Error('No route found');
-};
+  throw new Error('No route found')
+}
 
 export const renderComponent = ({ rootElementId = 'root' } = {}) => {
   // Obtiene el componente por la ruta actual
-  const component = getComponentByRoute(window.location.pathname);
+  const component = getComponentByRoute(window.location.pathname)
 
   // Renderiza el componente en el elemento root
-  const rootSection = document.getElementById(rootElementId);
-  rootSection.innerHTML = '';
-  rootSection.appendChild(component());
-};
+  const rootSection = document.getElementById(rootElementId)
+  rootSection.innerHTML = ''
+  rootSection.appendChild(component())
+}
 
 export const navigate = (pathname) => {
   // Cambia la ruta actual
-  window.history.pushState({}, pathname, window.location.origin + pathname);
+  window.history.pushState({}, pathname, window.location.origin + pathname)
 
   // Renderiza el componente
-  renderComponent();
-};
+  renderComponent()
+}
 
 export const handlePopState = () => {
-  renderComponent();
-};
+  renderComponent()
+}

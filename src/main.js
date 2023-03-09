@@ -1,15 +1,15 @@
 // import { onAuthStateChange } from './lib/firebase.js';
-import Home from './components/home.js';
-import Register from './components/register.js';
-import Feed from './components/feed.js';
-import NotFound from './components/404.js';
+import Home from './components/home.js'
+import Register from './components/register.js'
+import Feed from './components/feed.js'
+import NotFound from './components/404.js'
 
 import {
   // navigate,
   setRoutes,
   handlePopState,
   renderComponent,
-} from './router.js';
+} from './router.js'
 
 // Creamos un arreglo de rutas
 const routes = [
@@ -29,14 +29,14 @@ const routes = [
     pathname: '*', // ruta por defecto
     component: NotFound,
   },
-];
+]
 
 // agregamos las rutas al router
-setRoutes(routes);
+setRoutes(routes)
 
 // si no renderizamos el primer componente
 // con auhtStateChange
-renderComponent();
+renderComponent()
 
 // si renderizamos el primer componente
 // con auhtStateChange
@@ -52,4 +52,4 @@ renderComponent();
 
 // agregamos el evento popstate para que
 // podamos volver atras en el navegador
-window.onpopstate = handlePopState;
+window.onpopstate = handlePopState
