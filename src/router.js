@@ -20,7 +20,6 @@ export const setRoutes = (routes) => {
 
   // Otra forma de hacer lo mismo
   routes.reduce((currentRoutes, newRoute) => {
-    // eslint-disable-next-line semi
     currentRoutes[newRoute.pathname] = newRoute.component
     return currentRoutes
   }, ROUTES)
